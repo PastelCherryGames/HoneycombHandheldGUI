@@ -1,0 +1,42 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+uniform vec4 base_color_1 = vec4(0.0, 0.0, 0.0, 0.0);
+uniform vec4 base_color_2 = vec4(0.0, 0.0, 0.0, 0.0);
+uniform vec4 base_color_3 = vec4(0.0, 0.0, 0.0, 0.0);
+uniform vec4 base_color_4 = vec4(0.0, 0.0, 0.0, 0.0);
+uniform vec4 palette_color_1 = vec4(0.0, 0.0, 0.0, 0.0);
+uniform vec4 palette_color_2 = vec4(0.0, 0.0, 0.0, 0.0);
+uniform vec4 palette_color_3 = vec4(0.0, 0.0, 0.0, 0.0);
+uniform vec4 palette_color_4 = vec4(0.0, 0.0, 0.0, 0.0);
+
+void fragment() {
+	vec4 curr_color = texture(TEXTURE, UV);
+	
+	vec4 d4_1 = abs(curr_color - base_color_1);
+	float d_1 = max(max(d4_1.r, d4_1.g), d4_1.b);
+	if (d_1 < 0.01 && curr_color.a > 0.0) {
+		curr_color = palette_color_1;
+	}
+	
+	vec4 d4_2 = abs(curr_color - base_color_2);
+	float d_2 = max(max(d4_2.r, d4_2.g), d4_2.b);
+	if (d_2 < 0.01 && curr_color.a > 0.0) {
+		curr_color = palette_color_2;
+	}
+	
+	vec4 d4_3 = abs(curr_color - base_color_3);
+	float d_3 = max(max(d4_3.r, d4_3.g), d4_3.b);
+	if (d_3 < 0.01 && curr_color.a > 0.0) {
+		curr_color = palette_color_3;
+	}
+	
+	vec4 d4_4 = abs(curr_color - base_color_4);
+	float d_4 = max(max(d4_4.r, d4_4.g), d4_4.b);
+	if (d_4 < 0.01 && curr_color.a > 0.0) {
+		curr_color = palette_color_4;
+	}
+	
+	COLOR = curr_color;
+}"

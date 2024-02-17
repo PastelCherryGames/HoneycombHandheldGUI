@@ -1,0 +1,337 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Scripts/Menu.gd" type="Script" id=1]
+[ext_resource path="res://Art/splash-screen.png" type="Texture" id=2]
+[ext_resource path="res://Art/menu-background.png" type="Texture" id=3]
+[ext_resource path="res://Art/menu-entry.png" type="Texture" id=4]
+[ext_resource path="res://Prefabs/Menu_Entry.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Art/default-icons.png" type="Texture" id=6]
+[ext_resource path="res://Art/popup.png" type="Texture" id=7]
+[ext_resource path="res://Art/arrow.png" type="Texture" id=8]
+[ext_resource path="res://Art/small-arrow.png" type="Texture" id=9]
+[ext_resource path="res://Art/color-blocks.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/Palette_Shader.tres" type="Shader" id=11]
+
+[sub_resource type="ShaderMaterial" id=11]
+shader = ExtResource( 11 )
+shader_param/base_color_1 = Plane( 0, 0, 0, 0 )
+shader_param/base_color_2 = Plane( 0, 0, 0, 0 )
+shader_param/base_color_3 = Plane( 0, 0, 0, 0 )
+shader_param/base_color_4 = Plane( 0, 0, 0, 0 )
+shader_param/palette_color_1 = Plane( 0, 0, 0, 0 )
+shader_param/palette_color_2 = Plane( 0, 0, 0, 0 )
+shader_param/palette_color_3 = Plane( 0, 0, 0, 0 )
+shader_param/palette_color_4 = Plane( 0, 0, 0, 0 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 42, 42 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 6 )
+region = Rect2( 42, 0, 42, 42 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 6 )
+region = Rect2( 84, 0, 42, 42 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 6 )
+region = Rect2( 126, 0, 42, 42 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 4 )
+region = Rect2( 52, 0, 52, 56 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 7 )
+region = Rect2( 240, 0, 240, 240 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 7 )
+region = Rect2( 480, 0, 240, 240 )
+
+[sub_resource type="Animation" id=1]
+resource_name = "fade"
+length = 2.0
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Control" type="Control"]
+material = SubResource( 11 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -784.0
+margin_bottom = -360.0
+script = ExtResource( 1 )
+color_schemes = [ [ Color( 1, 0.654902, 0.733333, 1 ), Color( 0.901961, 0.388235, 0.505882, 1 ), Color( 0.811765, 0.196078, 0.501961, 1 ), Color( 0.207843, 0.0431373, 0.286275, 1 ) ], [ Color( 1, 0.964706, 0.827451, 1 ), Color( 0.976471, 0.658824, 0.458824, 1 ), Color( 0.921569, 0.419608, 0.435294, 1 ), Color( 0.486275, 0.247059, 0.345098, 1 ) ], [ Color( 0.945098, 0.94902, 0.854902, 1 ), Color( 1, 0.807843, 0.588235, 1 ), Color( 1, 0.466667, 0.466667, 1 ), Color( 0, 0.188235, 0.231373, 1 ) ], [ Color( 1, 0.886275, 0.858824, 1 ), Color( 0.85098, 0.654902, 0.776471, 1 ), Color( 0.552941, 0.537255, 0.780392, 1 ), Color( 0.458824, 0.372549, 0.611765, 1 ) ], [ Color( 0.909804, 0.905882, 0.796078, 1 ), Color( 0.988235, 0.65098, 0.67451, 1 ), Color( 1, 0.490196, 0.431373, 1 ), Color( 0.129412, 0.462745, 0.8, 1 ) ] ]
+entries = [ NodePath("Menu Background/Menu Entries/Menu Entry 1"), NodePath("Menu Background/Menu Entries/Menu Entry 2"), NodePath("Menu Background/Menu Entries/Menu Entry 3"), NodePath("Menu Background/Menu Entries/Menu Entry 4"), NodePath("Menu Background/Menu Entries/Menu Entry 5"), NodePath("Menu Background/Menu Entries/Menu Entry 6"), NodePath("Menu Background/Menu Entries/Menu Entry 7"), NodePath("Menu Background/Menu Entries/Menu Entry 8"), NodePath("Menu Background/Menu Entries/Menu Entry 9"), NodePath("Menu Background/Menu Entries/Menu Entry 10"), NodePath("Menu Background/Menu Entries/Menu Entry 11"), NodePath("Menu Background/Menu Entries/Menu Entry 12") ]
+settings_desc = "Settings"
+settings_icon = SubResource( 3 )
+tama_desc = "Virtual Pet"
+tama_icon = SubResource( 4 )
+get_games_desc = "Get new games"
+get_games_icon = SubResource( 5 )
+power_off_desc = "Power off"
+power_off_icon = SubResource( 6 )
+
+[node name="Menu Background" type="TextureRect" parent="."]
+use_parent_material = true
+margin_right = 240.0
+margin_bottom = 240.0
+texture = ExtResource( 3 )
+
+[node name="Menu Desc" type="Label" parent="Menu Background"]
+margin_left = 20.0
+margin_top = 188.0
+margin_right = 226.0
+margin_bottom = 228.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+valign = 1
+
+[node name="Menu Entries" type="Control" parent="Menu Background"]
+use_parent_material = true
+margin_right = 240.0
+margin_bottom = 240.0
+
+[node name="Menu Entry 1" parent="Menu Background/Menu Entries" instance=ExtResource( 5 )]
+visible = false
+
+[node name="Menu Entry 2" parent="Menu Background/Menu Entries" instance=ExtResource( 5 )]
+visible = false
+margin_left = 55.0
+margin_right = 107.0
+
+[node name="Menu Entry 3" parent="Menu Background/Menu Entries" instance=ExtResource( 5 )]
+visible = false
+margin_left = 107.0
+margin_right = 159.0
+
+[node name="Menu Entry 4" parent="Menu Background/Menu Entries" instance=ExtResource( 5 )]
+visible = false
+margin_left = 159.0
+margin_right = 211.0
+
+[node name="Menu Entry 5" parent="Menu Background/Menu Entries" instance=ExtResource( 5 )]
+visible = false
+margin_left = 29.0
+margin_top = 58.0
+margin_right = 81.0
+margin_bottom = 114.0
+
+[node name="Menu Entry 6" parent="Menu Background/Menu Entries" instance=ExtResource( 5 )]
+visible = false
+margin_left = 81.0
+margin_top = 58.0
+margin_right = 133.0
+margin_bottom = 114.0
+
+[node name="Menu Entry 7" parent="Menu Background/Menu Entries" instance=ExtResource( 5 )]
+visible = false
+margin_left = 133.0
+margin_top = 58.0
+margin_right = 185.0
+margin_bottom = 114.0
+
+[node name="Menu Entry 8" parent="Menu Background/Menu Entries" instance=ExtResource( 5 )]
+visible = false
+margin_left = 185.0
+margin_top = 58.0
+margin_right = 237.0
+margin_bottom = 114.0
+
+[node name="Menu Entry 9" parent="Menu Background/Menu Entries" instance=ExtResource( 5 )]
+visible = false
+margin_top = 101.0
+margin_bottom = 157.0
+
+[node name="Menu Entry 10" parent="Menu Background/Menu Entries" instance=ExtResource( 5 )]
+visible = false
+margin_left = 55.0
+margin_top = 101.0
+margin_right = 107.0
+margin_bottom = 157.0
+
+[node name="Menu Entry 11" parent="Menu Background/Menu Entries" instance=ExtResource( 5 )]
+visible = false
+margin_left = 107.0
+margin_top = 101.0
+margin_right = 159.0
+margin_bottom = 157.0
+
+[node name="Menu Entry 12" parent="Menu Background/Menu Entries" instance=ExtResource( 5 )]
+visible = false
+margin_left = 159.0
+margin_top = 101.0
+margin_right = 211.0
+margin_bottom = 157.0
+
+[node name="Menu Pointer" type="TextureRect" parent="Menu Background"]
+use_parent_material = true
+margin_left = 3.0
+margin_top = 15.0
+margin_right = 55.0
+margin_bottom = 71.0
+texture = SubResource( 2 )
+
+[node name="Settings Menu" type="TextureRect" parent="."]
+visible = false
+use_parent_material = true
+margin_right = 240.0
+margin_bottom = 240.0
+texture = SubResource( 8 )
+
+[node name="Arrow" type="TextureRect" parent="Settings Menu"]
+use_parent_material = true
+margin_left = 12.0
+margin_top = 29.0
+margin_right = 41.0
+margin_bottom = 69.0
+texture = ExtResource( 8 )
+
+[node name="Volume" type="Label" parent="Settings Menu"]
+margin_left = 44.0
+margin_top = 29.0
+margin_right = 172.0
+margin_bottom = 69.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Volume"
+valign = 1
+
+[node name="Volume Value" type="Label" parent="Settings Menu"]
+margin_left = 177.0
+margin_top = 33.0
+margin_right = 209.0
+margin_bottom = 65.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "5"
+align = 1
+valign = 1
+
+[node name="Volume Arrows" type="TextureRect" parent="Settings Menu"]
+use_parent_material = true
+margin_left = 161.0
+margin_top = 41.0
+margin_right = 225.0
+margin_bottom = 57.0
+rect_pivot_offset = Vector2( 19, 20 )
+texture = ExtResource( 9 )
+
+[node name="Color Scheme" type="Label" parent="Settings Menu"]
+margin_left = 44.0
+margin_top = 69.0
+margin_right = 172.0
+margin_bottom = 109.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Color Scheme"
+valign = 1
+
+[node name="Color Rect" type="TextureRect" parent="Settings Menu"]
+use_parent_material = true
+margin_left = 177.0
+margin_top = 73.0
+margin_right = 209.0
+margin_bottom = 105.0
+texture = ExtResource( 10 )
+
+[node name="Color Arrows" type="TextureRect" parent="Settings Menu"]
+use_parent_material = true
+margin_left = 161.0
+margin_top = 81.0
+margin_right = 225.0
+margin_bottom = 97.0
+rect_pivot_offset = Vector2( 19, 20 )
+texture = ExtResource( 9 )
+
+[node name="Back" type="Label" parent="Settings Menu"]
+margin_left = 44.0
+margin_top = 109.0
+margin_right = 172.0
+margin_bottom = 149.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Back"
+valign = 1
+
+[node name="Game Menu" type="TextureRect" parent="."]
+visible = false
+use_parent_material = true
+margin_right = 240.0
+margin_bottom = 240.0
+texture = SubResource( 7 )
+
+[node name="Arrow" type="TextureRect" parent="Game Menu"]
+use_parent_material = true
+margin_left = 40.0
+margin_top = 29.0
+margin_right = 69.0
+margin_bottom = 69.0
+texture = ExtResource( 8 )
+
+[node name="Start game" type="Label" parent="Game Menu"]
+margin_left = 72.0
+margin_top = 29.0
+margin_right = 200.0
+margin_bottom = 69.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Start game"
+valign = 1
+
+[node name="Delete game" type="Label" parent="Game Menu"]
+margin_left = 72.0
+margin_top = 69.0
+margin_right = 200.0
+margin_bottom = 109.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Delete game"
+valign = 1
+
+[node name="Back" type="Label" parent="Game Menu"]
+margin_left = 72.0
+margin_top = 109.0
+margin_right = 200.0
+margin_bottom = 149.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Back"
+valign = 1
+
+[node name="Power Menu" type="TextureRect" parent="."]
+visible = false
+use_parent_material = true
+margin_right = 240.0
+margin_bottom = 240.0
+texture = SubResource( 9 )
+
+[node name="Powering down" type="Label" parent="Power Menu"]
+margin_left = 40.0
+margin_top = 69.0
+margin_right = 200.0
+margin_bottom = 109.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Powering down..."
+align = 1
+valign = 1
+
+[node name="Splash" type="TextureRect" parent="."]
+visible = false
+margin_right = 240.0
+margin_bottom = 240.0
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Splash"]
+autoplay = "fade"
+anims/fade = SubResource( 1 )
